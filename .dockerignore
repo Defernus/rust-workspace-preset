@@ -1,0 +1,12 @@
+Dockerfile
+docker-compose.yml
+README.md
+
+/target
+/key
+.env
+.env.example
+.vscode
+.idea
+node_modules
+
