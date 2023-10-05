@@ -1,0 +1,40 @@
+[workspace]
+members = ["generate_random_value", "tests"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+authors = ["Denis Lavrentev"]
+license = "Apache-2.0-or-MIT"
+edition = "2021"
+repository = "https://github.com/defernus/rust-workspace-preset"
+keywords = ["boilerplate", "workspace", "example", "preset"]
+
+[workspace.dependencies]
+rand = "0.8.5"
+envconfig = "0.10.0"
+dotenvy = "0.15.7"
+
+# project packages
+generate-random-value = { version = "0.1.0", path = "./generate_random_value" }
+tests = { version = "0.1.0", path = "./tests" }
+
+[profile.release]
+codegen-units = 1
+debug = false
+debug-assertions = false
+incremental = false
+lto = true
+overflow-checks = true
+opt-level = 3
+panic = "abort"
+rpath = false
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[toolchain]
+channel = "nightly"

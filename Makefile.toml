@@ -1,0 +1,39 @@
+[config]
+default_to_workspace = false
+
+[tasks.build]
+command = "cargo"
+args = ["build", "--release", "--locked", "--exclude", "tests", "--workspace"]
+
+[tasks.test]
+command = "cargo"
+args = ["test", "--locked"]
+
+[tasks.fmt-fix]
+toolchain = "nightly"
+command = "cargo"
+args = ["fmt", "--all"]
+
+[tasks.fmt]
+toolchain = "nightly"
+command = "cargo"
+args = ["fmt", "--all", "--check"]
+
+[tasks.clippy]
+command = "cargo"
+args = ["clippy", "--tests", "--", "-D", "warnings"]
+
+[tasks.clippy-fix]
+command = "cargo"
+args = ["clippy", "--fix"]
+
+[tasks.audit]
+command = "cargo"
+args = ["audit"]
+
+[tasks.run]
+command = "cargo"
+args = ["run", "--bin", "generate-random-value"]
+
+[tasks.all-checks]
+dependencies = ["fmt", "clippy", "build", "test", "audit"]
