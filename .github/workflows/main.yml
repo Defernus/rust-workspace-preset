@@ -29,20 +29,17 @@ jobs:
       # selecting a toolchain should happen before the plugin, as the cache uses the current rustc version as its cache key
       - name: Cache dependencies
         uses: Swatinem/rust-cache@v2
-
-      - name: Install cargo make
-        uses: davidB/rust-cargo-make@v1
-
+      
       - name: Format
         run: cargo make fmt
 
       - name: Clippy
-        run: cargo make clippy
+        run: clippy --tests -- -D warnings
 
       - name: Test
-        run: cargo make test
+        run: cargo test --locked
 
       - name: Audit dependencies
         run: |
           cargo install --locked cargo-audit
-          cargo make audit
+          cargo audit

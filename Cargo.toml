@@ -1,5 +1,5 @@
 [workspace]
-members = ["generate_random_value", "tests"]
+members = ["crates/*"]
 resolver = "2"
 
 [workspace.package]
@@ -16,8 +16,7 @@ envconfig = "0.10.0"
 dotenvy = "0.15.7"
 
 # project packages
-generate-random-value = { version = "0.1.0", path = "./generate_random_value" }
-tests = { version = "0.1.0", path = "./tests" }
+generate-random-value = { version = "0.1.0", path = "./crates/generate_random_value" }
 
 [profile.release]
 codegen-units = 1
