@@ -4,9 +4,9 @@ Simple preset for Rust workspaces made by [me](https://github.com/Defernus) for 
 
 ## TL;DR Run
 
-- install cargo-make `cargo install cargo-make`
+- Install [rust](https://www.rust-lang.org/) and [just](https://just.systems/)
 - create `.env` file in the root of the project using `.env.example` as a template
-- run `cargo make run`
+- run `just run`
 
 ## License
 
