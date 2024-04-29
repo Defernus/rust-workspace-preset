@@ -10,5 +10,5 @@ keywords = { workspace = true }
 
 [dependencies]
 rand = { workspace = true }
-envconfig = { workspace = true }
+clap = { workspace = true }
 dotenvy = { workspace = true }

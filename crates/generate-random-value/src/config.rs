@@ -1,11 +1,11 @@
-use envconfig::Envconfig;
+use clap::Parser;
 
-#[derive(Envconfig)]
+#[derive(Parser)]
 pub struct Config {
-    #[envconfig(from = "MIN_VALUE", default = "0")]
+    #[arg(long, env, default_value = "0")]
     pub min_value: usize,
 
-    #[envconfig(from = "MAX_VALUE", default = "100")]
+    #[arg(long, env, default_value = "100")]
     pub max_value: usize,
 }
 
@@ -15,6 +15,6 @@ impl Config {
             println!("Loaded .env file");
         }
 
-        Self::init_from_env().expect("Config init failed")
+        Self::parse()
     }
 }

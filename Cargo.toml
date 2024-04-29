@@ -11,9 +11,9 @@ repository = "https://github.com/defernus/rust-workspace-preset"
 keywords = ["boilerplate", "workspace", "example", "preset"]
 
 [workspace.dependencies]
-rand = "0.8.5"
-envconfig = "0.10.0"
-dotenvy = "0.15.7"
+rand = "0.8"
+clap = { version = "4.5", features = ["derive", "env"] }
+dotenvy = "0.15"
 
 # project packages
 generate-random-value = { version = "0.1.0", path = "./crates/generate_random_value" }
