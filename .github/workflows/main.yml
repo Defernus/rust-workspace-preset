@@ -27,7 +27,10 @@ jobs:
           override: true
       - name: Install nextest
         uses: taiki-e/install-action@nextest
-
+      
+      - name: Install just
+        uses: extractions/setup-just@v2
+      
       # selecting a toolchain should happen before the plugin, as the cache uses the current rustc version as its cache key
       - name: Cache dependencies
         uses: Swatinem/rust-cache@v2
