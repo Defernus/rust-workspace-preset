@@ -25,6 +25,10 @@ jobs:
           components: rustfmt, clippy
           profile: minimal
           override: true
+
+      - name: Install cargo-deny
+        uses: EmbarkStudios/cargo-deny-action@v1
+
       - name: Install nextest
         uses: taiki-e/install-action@nextest
       
@@ -40,8 +44,3 @@ jobs:
 
       - name: Test
         run: just test-all
-
-      - name: Audit dependencies
-        run: |
-          cargo install --locked cargo-audit
-          cargo audit
