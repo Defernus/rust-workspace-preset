@@ -22,22 +22,19 @@ jobs:
         with:
           toolchain: nightly
           target: wasm32-unknown-unknown
-          components: rustfmt, clippy
+          components: rustfmt, clippy, cargo-nextest
           profile: minimal
           override: true
 
       # selecting a toolchain should happen before the plugin, as the cache uses the current rustc version as its cache key
       - name: Cache dependencies
         uses: Swatinem/rust-cache@v2
-      
-      - name: Format
-        run: cargo fmt --all --check
 
-      - name: Clippy
-        run: cargo clippy --tests -- -D warnings
+      - name: Lint
+        run: just lint
 
       - name: Test
-        run: cargo test --locked
+        run: just test-all
 
       - name: Audit dependencies
         run: |

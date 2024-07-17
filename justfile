@@ -7,14 +7,17 @@ default:
 run:
     cargo run --bin generate-random-value
 
-fmt:
-    cargo fmt --all
+lint:
+    cargo deny check --hide-inclusion-graph  --allow duplicate --allow advisory-not-detected
+    cargo fmt --all --check
+    cargo check
+    cargo clippy
 
-clippy:
-    cargo clippy --all-targets --all-features -- -D warnings
+test:
+    cargo nextest run --run-ignored default
 
-audit:
-    cargo audit
+test-integration:
+    cargo nextest run --run-ignored ignored-only
 
-# TODO: add tests
-# test:
+test-all:
+    cargo nextest run --run-ignored all
