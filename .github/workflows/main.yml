@@ -27,7 +27,7 @@ jobs:
           override: true
 
       - name: Install cargo-deny
-        uses: EmbarkStudios/cargo-deny-action@v1
+        run: cargo install cargo-deny --locked
 
       - name: Install nextest
         uses: taiki-e/install-action@nextest
