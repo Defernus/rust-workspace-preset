@@ -22,9 +22,11 @@ jobs:
         with:
           toolchain: nightly
           target: wasm32-unknown-unknown
-          components: rustfmt, clippy, cargo-nextest
+          components: rustfmt, clippy
           profile: minimal
           override: true
+      - name: Install nextest
+        uses: taiki-e/install-action@nextest
 
       # selecting a toolchain should happen before the plugin, as the cache uses the current rustc version as its cache key
       - name: Cache dependencies
