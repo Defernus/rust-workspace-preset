@@ -1,6 +1,7 @@
 use std::sync::Arc;
 use tracing_log::LogTracer;
-use tracing_subscriber::{layer::SubscriberExt, EnvFilter, Registry};
+use tracing_subscriber::layer::SubscriberExt;
+use tracing_subscriber::{EnvFilter, Registry};
 
 #[track_caller]
 #[inline(always)]
