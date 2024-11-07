@@ -12,11 +12,19 @@ keywords = ["boilerplate", "workspace", "example", "preset"]
 
 [workspace.dependencies]
 rand = "0.8"
-clap = { version = "4.5", features = ["derive", "env"] }
+envstruct = "1.0"
 dotenvy = "0.15"
+eyre = "0.6"
+tracing = "0.1"
+tracing-log = "0.2"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-error = "0.2"
+log = "0.4"
+color-eyre = "0.6"
 
 # project packages
-generate-random-value = { version = "0.1.0", path = "./crates/generate_random_value" }
+generate-random-value = { version = "0.1.0", path = "./crates/generate-random-value" }
+init-log = { version = "0.1.0", path = "./crates/init-log" }
 
 [profile.release]
 codegen-units = 1

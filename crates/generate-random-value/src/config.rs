@@ -1,20 +1,21 @@
-use clap::Parser;
+use envstruct::prelude::*;
+use eyre::Context;
 
-#[derive(Parser)]
+#[derive(EnvStruct)]
 pub struct Config {
-    #[arg(long, env, default_value = "0")]
+    #[env(default = "0")]
     pub min_value: usize,
 
-    #[arg(long, env, default_value = "100")]
+    #[env(default = "100")]
     pub max_value: usize,
 }
 
 impl Config {
-    pub fn init() -> Self {
+    pub fn init() -> eyre::Result<Self> {
         if dotenvy::dotenv().is_ok() {
             println!("Loaded .env file");
         }
 
-        Self::parse()
+        Self::with_prefix("RANDOM_VALUE").wrap_err("failed to load config")
     }
 }

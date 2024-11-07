@@ -10,5 +10,8 @@ keywords.workspace = true
 
 [dependencies]
 rand.workspace = true
-clap.workspace = true
+envstruct.workspace = true
 dotenvy.workspace = true
+eyre.workspace = true
+
+init-log.workspace = true
